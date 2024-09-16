@@ -1,0 +1,16 @@
+{%extends 'index.html' %}
+{% block title %}My Third Page  {% endblock %}
+{%block content %}
+<h1>{{greet}}</h1>
+<ul>
+    {%for i in fruits %}
+    <li>{{i}}</li>
+    {% endfor %}
+</ul>
+
+{%if ans %}
+    <h1>Hello Words</h1>
+{%else%}
+    <p>Triệu coder</p>
+{% endif %}
+{%endblock %}
