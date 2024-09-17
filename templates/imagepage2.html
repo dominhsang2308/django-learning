@@ -1,0 +1,19 @@
+{%extends 'index.html' %}
+{% load static %}
+{% block title %}My Image Page 2 {% endblock %}
+{%block content %}
+<div class="container-fluid">
+    <div class="row">
+        {% if var %}
+        <div class="col-md-6">
+            <img src="{% static 'asx.jpg' %}" class="img-fluid">
+        </div>
+        {% else %}
+        <div class="col-md-6">
+            <img src="{% static 'dog.png' %}" class="img-fluid">
+        </div>
+        {% endif %}
+    </div>
+</div>
+<h1>SSSS</h1>
+{%endblock %}

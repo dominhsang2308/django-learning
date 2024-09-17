@@ -1,0 +1,21 @@
+{%extends 'index.html' %}
+{% block title %}My Second Page {% endblock %}
+{%block content %}
+<h1 style="margin-top: 1rem; text-align: center;"> My Form </h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6" style="margin: 0 auto;">
+            <form>
+                <div class="form-group">
+                    <label for="mytext">Name : </label>
+                    <input type="text" class="form-control" id="mytext" name="mytext">
+                </div>
+                <div class="form-group">
+                    <label for="mytextarena">My Textarena :</label>
+                    <textarea class="form-control" rows="4" id="mytextarena" name="mytextarena"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock %}

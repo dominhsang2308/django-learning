@@ -36,3 +36,20 @@ def mythirdpage(request):
 
 def myimgpage(request):
     return render(request, 'imagepage.html')
+
+def myimgpage2(request,imgname):
+    myimage = imgname
+    myimage = imgname.lower()
+
+    if myimage == "asx":
+        var = True
+    elif myimage == "dog":
+        var = False
+    mydict = {
+        "var" : var
+    }
+
+    return render(request, 'imagepage2.html',mydict)
+
+def myform(request):
+    return render(request, 'myform.html')
