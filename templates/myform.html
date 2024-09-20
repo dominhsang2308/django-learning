@@ -1,11 +1,12 @@
 {%extends 'index.html' %}
-{% block title %}My Second Page {% endblock %}
+{% block title %}My Form Page {% endblock %}
 {%block content %}
-<h1 style="margin-top: 1rem; text-align: center;"> My Form </h1>
+<h1 style="margin: 1rem; text-align: center;"> My Form </h1>
 <div class="container-fluid">
-    <div class="row">
+    <div class="row" >
         <div class="col-md-6" style="margin: 0 auto;">
-            <form>
+            <form method="POST" action="{% url 'submitmyform' %}">
+                {% csrf_token %}
                 <div class="form-group">
                     <label for="mytext">Name : </label>
                     <input type="text" class="form-control" id="mytext" name="mytext">
@@ -13,6 +14,9 @@
                 <div class="form-group">
                     <label for="mytextarena">My Textarena :</label>
                     <textarea class="form-control" rows="4" id="mytextarena" name="mytextarena"></textarea>
+                </div>
+                <div class="form-group">
+                    <button style="margin: 0 auto; display: block; margin-top: 1rem;" type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
