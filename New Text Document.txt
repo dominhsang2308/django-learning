@@ -1,0 +1,7 @@
+T25  Telephone Number  – Character are not allowed
+T26  Telephone Number - First character can not have space
+T27  Email : Email ID must not be blank
+T28  Email : Email ID is not valid
+T29  Email : First character can not have space
+ F33 If same Email Id exist in the system, system shows an error. 
+New customer

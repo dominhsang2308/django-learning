@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
 from .forms import *
 # Create your views here.
+def error_404_view(request,exception):
+    return render(request,'404.html')
 def myfunctioncall(request):
     return HttpResponse("Hello Worlds")
 
@@ -70,19 +72,31 @@ def myform2(request):
         if form.is_valid():
             title = request.POST['title']
             subject = request.POST['subject']
+            email = request.POST['email']
             # var = str("Form Submitted" + str(request.method))
             # return HttpResponse(var)
             mydict = {
                 "form": FeedbackForm()
             }
+            errorflag = False
+            Error = []
             if title != title.upper():
-                mydict['error'] = True
-                mydict['errormsg'] = "Title should be Capital"
-                return render(request, 'myform2.html', mydict)
-            else:                
+                errorflag = True
+                errormsg = "Title should be Capital"
+                Error.append(errormsg)
+            import re
+            regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+            if not re.search(regex,email):
+                errorflag = True
+                errormsg = "Not a valid email address"
+                Error.append(errormsg)
+            if errorflag != True:         
                 mydict['success'] = True
                 mydict['successmsg'] = "Form Submitted"
-                return render(request, 'myform2.html', mydict)
+            
+            mydict['error'] = errorflag
+            mydict['errors'] = Error 
+            return render(request, 'myform2.html', mydict)
         # else:
         #     mydict = {
         #         "form":form
